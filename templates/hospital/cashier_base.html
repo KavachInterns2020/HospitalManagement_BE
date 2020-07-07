@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Cashier</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="{% static '/style.css' %}">
+
+
+  <style media="screen">
+    html,body{
+      background: #59C173;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #5D26C1, #a17fe0, #59C173);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #5D26C1, #a17fe0, #59C173); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    }
+    a:link {
+      text-decoration: none;
+    }
+
+    a {
+      color: white;
+    }
+
+    a:hover {
+      color: white;
+    }
+
+    p {
+      text-align: center;
+
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <nav class="menu" tabindex="0">
+    <div class="smartphone-menu-trigger"></div>
+    <header class="avatar">
+      <img src="{% static 'images/recep.webp' %}" />
+      <br><br>
+      <h6>Cashier</h6>
+      <h2>{{request.user.username}}</h2>
+    </header>
+    <ul>
+      <li tabindex="0" class="icon-dashboard"> <a style="color:white; text-decoration:none;" href="/cashier-dashboard"><span>Dashboard</span></a> </li>
+      <li tabindex="0" class="icon-users"> <a style="color:white; text-decoration:none;" href="/cashier-patient"><span>Patient</span></a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+
+    <!-- nav start -->
+    <div class="bs-example">
+      <nav class="navbar navbar-expand-md  navbar-dark fixed-top" style="background:#337AB7;">
+        <a href="/cashier-dashboard" class="navbar-brand">HOSPITAL MANAGEMENT</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+          <div class="navbar-nav" style=" margin-left: 90%;">
+
+            <a href="/logout" class="nav-item nav-link">Logout</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- nav end -->
+
+
+
+    <br><br>
+
+    <!-- content start-->
+    {% block content %}
+
+    {% endblock content %}
+    <!-- content end-->
+
+    <br><br><br><br>
+
+  </main>
+</body>
+
+</html>

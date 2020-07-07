@@ -1,0 +1,35 @@
+{% extends 'hospital/homebase.html' %}
+{% block content %}
+<style>
+  .jumbotron
+  {
+    height: 500px;
+    width: 800px;
+    margin-top: 100px;
+  }
+  html,body{
+    background: #8A2387;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #F27121, #E94057, #8A2387);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #F27121, #E94057, #8A2387); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+height:100%;
+background-size: cover;
+background-position: center;
+  }
+
+</style>
+<br>
+<br>
+<div class="container">
+<div class="jumbotron" style="margin-bottom:0px;">
+  <h1 class="display-4" style="text-align:center;">Hello, Patient</h1>
+  <p class="lead">Welcome to Clinikey</p>
+  <hr class="my-4">
+  <p>You can access various features after Login/SignUp.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="/patientsignup" role="button">Register Your Account</a>
+    <a class="btn btn-primary btn-lg" href="/patientlogin" role="button">Login</a>
+  </p>
+</div>
+</div>
+
+{% endblock content %}

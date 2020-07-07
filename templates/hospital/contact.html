@@ -1,0 +1,122 @@
+{% extends 'hospital/homebase.html' %}
+{% load static %}
+{% block content %}
+<br><br>
+<link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}">
+<script>
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  function filterFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("myDropdown");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+      txtValue = a[i].textContent || a[i].innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        a[i].style.display = "";
+      } else {
+        a[i].style.display = "none";
+      }
+    }
+  } 
+</script>
+            <div class="container">
+               <h1 Class="contactheader">Thanks for contacting Clinikey</h1>
+               <h3>Clinikey always love to hear from you!</h3>
+               <div class="dropdown">
+                  <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                  <button onclick="myFunction()" class="dropbtn">If u want to resolve any Issue</button>
+                <div id="myDropdown" class="dropdown-content">
+                  <a href="/about">About</a>
+                  <a href="/login">Login</a>
+                  <a href="/doctor">Doctor Issue</a>
+                  <a href="#support">Support</a>
+                </div>
+              </div> 
+<p>Or Explain your querry</p>
+<form method="POST" action="/add_contact/">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Email address</label>
+    <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Name</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Your Name" required>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect2">Issue</label>
+    <textarea class="form-control" id="exampleFormControlInput1" name="issue" placeholder="Your Issue" required></textarea>
+  </div>
+  <input class="form-control btn btn-primary" type="submit" value="Submit">
+</form>
+{% ifequal error "no" %}
+<script>
+    alert('Contacted !! Someone from Our Team will get in touch with you!!');
+    window.location = ('{% url "" %}');
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('Something Went Wrong!');
+</script>
+{% endifequal %}
+<div Class="flexy">
+    <div>
+<Card>
+  <Img variant="top" src="{% static 'images/photo-of-medical-professionals-doing-a-surgery-on-a-patient-4483334.jpg' %}" />
+  <Card.Body>
+  <Title>Chat box</Title>
+    <Card.Text>
+    If your issue is not solved feel free to chat with us
+    </Card.Text>
+    <Button class="btn btn-primary" variant="primary">Chat With Us</Button>
+  </Card.Body>
+</Card>
+</div>
+<div>
+<Card>
+  <Img variant="top" src="{% static 'images/faceless-doctor-with-pills-in-hands-4021811.jpg' %}" />
+  <Card.Body>
+    <Card.Title>Meet Us At any moment</Card.Title>
+    <Card.Text>
+    phone:11111111<br/>
+    email:jehddeduh@gmail.com<br/>
+
+    </Card.Text>
+    <Button class="btn btn-primary" variant="primary">Meet us</Button>
+  </Card.Body>
+</Card>
+</div>
+<div>
+<Card>
+  <Img variant="top" src="{% static 'images/faceless-doctor-with-pills-in-hands-4021811.jpg' %}" />
+  <Card.Body>
+    <Card.Title>We are here to help</Card.Title>
+    <Card.Text>
+ We try to respond to all request within 24 hours
+    </Card.Text>
+    <Button class="btn btn-primary" variant="primary">Ping us</Button>
+  </Card.Body>
+</Card>
+</div>
+</div>
+               </Container>
+               <p >Thanks for contacting Clinikey Follow us at facebook,instagram,Linkdin and Twitter
+               <div Class="flexy">
+               <FacebookLoginButton  />
+               <TwitterLoginButton  />
+               <InstagramLoginButton  />
+               <LinkedInLoginButton  />
+               </div>
+               </p>
+               </div>
+
+
+
+{% endblock %}
