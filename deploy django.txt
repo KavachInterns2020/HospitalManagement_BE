@@ -1,0 +1,26 @@
+Run Django App on Heroku
+
+1.Create an Heroku account
+2.Install pipenv
+3.Install git
+4.Install Heroku CLI
+5.Login heroku
+6.Create a virtual enviroment
+7.Run pip freeze to get to know about librariies required in your file
+8.Check which version django,requests you have and install it
+9.Run python manage.py runserver to ensure that django app in running properly
+10.Create a Procfile and write "web:gunicorn myproject.wsgi" where myproject is your project name
+11.pip install gunicorn 
+12.Install django-heroku
+13.Add "import django_heroku" at top of settings.py file
+14.Add "django_heroku,settings(locals())" at bottom of settings.py file to activate your django heroku
+15.pip freeze > requirements.txt to create new file containing all requirements for heroku
+16.heroku create "appname" (to create an app on heroku)
+17.git status 
+18.git add -all
+19.git commit -m "First Commit"
+20.git push heroku master
+21.Website is working but Admin panel failed
+22.To run admin panel write heroku run bash
+23.create superuser and make migrations as we do in our localhost
+24.Website is Deployed on heroku Server
